@@ -1,7 +1,10 @@
-# Build files
-Build/
+# build files
+Build/*.exe
+Build/*.ilk
+Build/*.pdb
 Stega/Debug/
 
+# user-specific files
 *.suo
 
 *.opensdf
