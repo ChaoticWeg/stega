@@ -74,7 +74,6 @@
   <ItemGroup>
     <ClInclude Include="CmdParser.h" />
     <ClInclude Include="ExitCodes.h" />
-    <ClInclude Include="FileHeaders.h" />
     <ClInclude Include="Metadata.h" />
   </ItemGroup>
   <ItemGroup>

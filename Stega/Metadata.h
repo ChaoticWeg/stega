@@ -1,8 +1,6 @@
 #ifndef FILE_METADATA_H
 #define FILE_METADATA_H
 
-#include "FileHeaders.h"
-
 struct Metadata
 {
 public:

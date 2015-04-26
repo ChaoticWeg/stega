@@ -19,7 +19,6 @@
 // project
 #include "CmdParser.h"
 #include "ExitCodes.h"
-#include "FileHeaders.h"
 #include "Metadata.h"
 
 using namespace std;

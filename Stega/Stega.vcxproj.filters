@@ -23,9 +23,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileHeaders.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Metadata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
