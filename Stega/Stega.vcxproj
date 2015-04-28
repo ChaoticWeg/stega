@@ -70,11 +70,14 @@
   <ItemGroup>
     <ClCompile Include="CmdParser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Metadata.cpp" />
+    <ClCompile Include="StegaUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CmdParser.h" />
     <ClInclude Include="ExitCodes.h" />
     <ClInclude Include="Metadata.h" />
+    <ClInclude Include="StegaUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="CarrierFile.bmp">

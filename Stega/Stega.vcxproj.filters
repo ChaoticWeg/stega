@@ -21,6 +21,12 @@
     <ClCompile Include="CmdParser.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Metadata.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StegaUtils.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Metadata.h">
@@ -30,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ExitCodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StegaUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
