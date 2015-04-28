@@ -1,3 +1,9 @@
+//**************************************************************
+// File:        StegaUtils.cpp
+// Author:      Shawn Lutch
+// Description: Implementation of StegaUtils.h
+//**************************************************************
+
 #include "StegaUtils.h"
 #include <iostream>
 #include <sstream>

@@ -1,3 +1,9 @@
+//**************************************************************
+// File:        Metadata.h
+// Author:      Shawn Lutch
+// Description: Object to hold data about the bitmap image file
+//**************************************************************
+
 #ifndef FILE_METADATA_H
 #define FILE_METADATA_H
 

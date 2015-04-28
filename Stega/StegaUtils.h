@@ -1,3 +1,10 @@
+//**************************************************************
+// File:        StegaUtils.h
+// Author:      Shawn Lutch
+// Description: Static member functions for hiding characters
+//              inside of pixels
+//**************************************************************
+
 #ifndef STEGA_UTILS_H
 #define STEGA_UTILS_H
 

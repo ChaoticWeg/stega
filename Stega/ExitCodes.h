@@ -1,3 +1,9 @@
+//**************************************************************
+// File:        ExitCodes.h
+// Author:      Shawn Lutch
+// Description: Enum holding potential program exit codes
+//**************************************************************
+
 #ifndef EXIT_CODES_H
 #define EXIT_CODES_H
 

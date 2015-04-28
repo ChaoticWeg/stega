@@ -1,3 +1,11 @@
+//**************************************************************
+// File:        CmdParser.h
+// Author:      Shawn Lutch
+// Description: Object that parses command line arguments, given
+//              the number of arguments (int argc) and the
+//              array of arguments (char **argv)
+//**************************************************************
+
 #ifndef STEGA_CLA_H
 #define STEGA_CLA_H
 

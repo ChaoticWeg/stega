@@ -1,3 +1,9 @@
+//**************************************************************
+// File:        Metadata.cpp
+// Author:      Shawn Lutch
+// Description: Implementation of Metadata.h
+//**************************************************************
+
 #include "Metadata.h"
 
 // destructor

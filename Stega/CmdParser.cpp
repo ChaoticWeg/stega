@@ -1,3 +1,9 @@
+//**************************************************************
+// File:        CmdParser.cpp
+// Author:      Shawn Lutch
+// Description: Implementation of CmdParser.h
+//**************************************************************
+
 #include <string>
 
 #include "boost/algorithm/string.hpp"

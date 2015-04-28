@@ -1,7 +1,7 @@
 //**************************************************************
 // File:		main.cpp
 // Author:		Shawn Lutch
-// Description: Executing class
+// Description: Executing file
 //**************************************************************
 
 // boost
@@ -34,9 +34,11 @@ int decode(string carrierFile);
 
 
 //**************************************************************
-//  COMMAND LINE USAGE
-//     [0]         [1]             [2]               [3]
-// Stega.exe [encode|decode] <CarrierFile.bmp> <SecretFile.txt>
+//					 COMMAND LINE USAGE
+//
+//     [0]       [1]            [2]                 [3]
+// Stega.exe  [encode]  <CarrierFile.bmp>    <SecretFile.txt>
+// Stega.exe  [decode]  <MessengerFile.bmp>
 //**************************************************************
 
 int main(int argc, char** argv)
