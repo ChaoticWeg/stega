@@ -1,7 +1,9 @@
 #ifndef FILE_METADATA_H
 #define FILE_METADATA_H
 
-struct Metadata
+#include <fstream>
+
+class Metadata
 {
 public:
 	unsigned int
@@ -11,8 +13,17 @@ public:
 		sizeBMP,		// the size of the BMP header, in bytes
 		pixelCount;		// the number of pixels in the file
 
-	// headers
 	char* headers;		// raw header bytes
+	// we don't concern ourselves with this data much after populating the above values,
+	// other than to copy it to the new file verbatim after modifying the pixels.
+
+	// creation/destruction
+	static Metadata* create(std::ifstream &infile);
+	~Metadata();
+
+private:
+	// no constructors allowed. instead only use static builder method
+	Metadata(){};
 };
 
 #endif
