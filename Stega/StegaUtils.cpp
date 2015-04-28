@@ -53,8 +53,7 @@ void StegaUtils::hide(std::vector<unsigned int> &pixels, const std::string text)
 
 	// mask out a null terminator in the following pixel, so that we will know where to stop when finding
 	// TODO URGENT FIND A BETTER WAY TO SIGNAL THE END OF THE MESSAGE
-	unsigned int pNUL = pixels[i] & 0xFFF0F0F0;
-	pixels[i] = pNUL;
+	pixels[i] &= 0xFFF0F0F0;
 
 	delete[] channels;
 	delete[] letterBytes;

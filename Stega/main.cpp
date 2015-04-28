@@ -147,7 +147,6 @@ int encode(string carrierFile, string secretFile)
 	readStringFromFile(sfile, SECRET_TEXT);
 
 	// file metadata and pixels
-	cerr << "Reading data from file\n";
 	Metadata *mdata = Metadata::create(infile);
 	vector<unsigned int> pixels;
 
@@ -161,19 +160,18 @@ int encode(string carrierFile, string secretFile)
 	}
 
 	// read in pixels
-	cerr << "Reading pixels from file\n";
 	readPixelsFromFile(infile, pixels, mdata->sizeHeaders, mdata->pixelCount);
 
 	// we're done with the infile. close it
 	infile.close();
 
 	// hide the text inside the image
-	cerr << "Hiding message '" << SECRET_TEXT << "' inside " << carrierFile << "\n";
+	cerr << "Hiding message from " << secretFile << " inside " << carrierFile << "\n";
 	StegaUtils::hide(pixels, SECRET_TEXT);
 
 	// write the file
 	ofstream outfile("out.bmp", ios::out | ios::binary);
-	cerr << "Writing the new pixels to 'out.bmp'\n";
+	cerr << "Writing the new pixels to out.bmp\n";
 	outfile.seekp(0L, ios::beg);
 	outfile.write(mdata->headers, mdata->sizeHeaders);
 	for (unsigned int i = 0; i < mdata->pixelCount; i++)
