@@ -24,10 +24,14 @@
 
 using namespace std;
 
+// read text from secretfile
 void readStringFromFile(ifstream &file, string &result);
+
+// read pixels from image
 void readPixelsFromFile(ifstream &file, vector<unsigned int> &pixels,
 	unsigned int startPos, unsigned int numPixels);
 
+// encoding and decoding
 int encode(string carrierFile, string secretFile);
 int decode(string carrierFile);
 
@@ -36,7 +40,7 @@ int decode(string carrierFile);
 //**************************************************************
 //					 COMMAND LINE USAGE
 //
-//     [0]       [1]            [2]                 [3]
+// [0]         [1]       [2]                  [3]
 // Stega.exe  [encode]  <CarrierFile.bmp>    <SecretFile.txt>
 // Stega.exe  [decode]  <MessengerFile.bmp>
 //**************************************************************
