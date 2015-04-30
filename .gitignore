@@ -1,3 +1,6 @@
+## Git Ignore file
+## Specifies files to be ignored by git operations
+
 # build files
 Build/*.exe
 Build/*.ilk
@@ -7,5 +10,6 @@ Stega/Debug/
 # user-specific files
 *.suo
 
+# sdf files
 *.opensdf
 *.sdf
