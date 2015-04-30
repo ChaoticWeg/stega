@@ -1,4 +1,4 @@
-## Stega
-Use steganography to hide a text file inside of a bitmap image
+# Stega.git
+An implementation of steganography, in the form of hiding a text file inside of a bitmap image
 
-To do: README.md
+###### To do: README.md
