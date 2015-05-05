@@ -11,7 +11,7 @@
 #include <vector>
 #include <string>
 
-class StegaUtils
+class StegaUtils final
 {
 public:
 	
