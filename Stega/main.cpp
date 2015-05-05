@@ -14,7 +14,6 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <assert.h>
 
 // project
 #include "CmdParser.h"
@@ -22,6 +21,7 @@
 #include "Metadata.h"
 #include "StegaUtils.h"
 
+// TODO remove 'using'
 using namespace std;
 
 // read text from secretfile
