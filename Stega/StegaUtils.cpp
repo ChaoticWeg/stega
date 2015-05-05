@@ -6,8 +6,8 @@
 
 #include "StegaUtils.h"
 #include <sstream>
+#include <cctype>
 
-// the big ones
 
 //*******************************************************
 // void hide(vector<unsigned int> &pixels, string text)
@@ -21,54 +21,55 @@ void StegaUtils::hide(std::vector<unsigned int> &pixels, const std::string text)
 	unsigned int i = 0;
 	for (i = 0; i < text.length(); i++)
 	{
-		unsigned int pixel = pixels[i];
-		unsigned char hexchar = text.at(i);
+		unsigned int pixel = pixels[i];		// the raw pixel (hex ARGB)
+		unsigned char hexchar = text.at(i);	// the character to hide (ASCII)
 
-		// prepare pixel
+		// mask out LSBs so the char can be easily piped in
 		pixel &= 0xFFF0F0F0;
 
-		// prepare character
+		// align bytes of character
 		unsigned int modified_char =
-			// mask out and shift bits into place
-			((hexchar & 0xF00) << 8) | ((hexchar & 0x0F0) << 4) | (hexchar & 0x00F);
+			((hexchar & 0xF00) << 8)	// shift most significant bit 2 places left
+			| ((hexchar & 0x0F0) << 4)	// shift second bit 1 place left
+			| (hexchar & 0x00F);		// leave least significant bit where it is
 
-		// hide the separated character inside the RGB channels
+		// hide the character inside the pixel
 		pixel |= modified_char;
 
 		// we have our "new" pixel
 		pixels[i] = pixel;
-	}
+	}	// TODO leave steps separated for readability?
 
-	i = text.length();
-
-	// mask out a null terminator in the following pixel, so that we will know where to stop when finding
-	// TODO URGENT FIND A BETTER WAY TO SIGNAL THE END OF THE MESSAGE
+	// mask out a null terminator in the following pixel to signal the end of the message
 	pixels[i] &= 0xFFF0F0F0;
 }
 
 //*******************************************************
 // void find(vector<unsigned int> &pixels, string &text)
 //
-// Searches for a string hidden inside the pixels
+// Searches for a string hidden inside the pixels and
+// stores the result in the string passed by reference
 //*******************************************************
 void StegaUtils::find(std::vector<unsigned int> &pixels, std::string &text)
 {
+	// states
 	bool foundNUL = false;
-	unsigned int i = -1;
-	std::stringstream ss;
+
+	unsigned int i = -1;	// index
+	std::stringstream ss;	// easy string concatenation
 
 	do
 	{
-		i++;
+		++i;
 
 		// get the pixel
 		unsigned int pixel = pixels[i];
 
 		// extract the hidden char
 		unsigned int hiddenChar =
-			((pixel & 0x000F0000) >> 8)		// isolate first bit and shift two places to right
-			| ((pixel & 0x00000F00) >> 4)	// isolate second bit and shift one place to right
-			| (pixel & 0x00000F);			// isolate third bit
+			((pixel & 0x000F0000) >> 8)		// shift most significant bit two places to right
+			| ((pixel & 0x00000F00) >> 4)	// shift second bit one place to right
+			| (pixel & 0x00000F);			// leave least significant bit where it is
 
 		// is it a null terminator?
 		if (hiddenChar == 0x000)
@@ -77,12 +78,18 @@ void StegaUtils::find(std::vector<unsigned int> &pixels, std::string &text)
 			// just end the loop without doing anything
 			foundNUL = true;
 		}
+
+		// otherwise, assume it's part of the message
 		else
 		{
-			// add this character to the stringstream
-			ss << ((char)hiddenChar);
+			// add this character to the stringstream if it's printable
+			if (isprint(hiddenChar))
+				ss << ((char)hiddenChar);
 		}
-	} while (!foundNUL && i < (pixels.size() - 1));
 
+		// stop if we find a null terminator or garbage, or if we've looked at all pixels
+	} while (!foundNUL && (i < (pixels.size() - 1)));
+
+	// assign the contents of the stringstream to the output parameter
 	text = ss.str();
 }
