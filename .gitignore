@@ -7,6 +7,10 @@ Build/*.ilk
 Build/*.pdb
 Stega/Debug/
 
+# project files
+*.sln
+*/*.*proj*
+
 # user-specific files
 *.suo
 
