@@ -31,8 +31,10 @@ void readStringFromFile(ifstream &file, string &result);
 void readPixelsFromFile(ifstream &file, vector<unsigned int> &pixels,
 	unsigned int startPos, unsigned int numPixels);
 
-// encoding and decoding
+// hide the text file inside of the image file
 int encode(string carrierFile, string secretFile);
+
+// attempt to extract a message from the image file
 int decode(string carrierFile);
 
 
