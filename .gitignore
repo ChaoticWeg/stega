@@ -17,3 +17,6 @@ Stega/Debug/
 # sdf files
 *.opensdf
 *.sdf
+
+# project submission
+*.7z
